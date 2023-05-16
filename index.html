@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Element</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 2s ease-in-out;
+        }
+
+        .input-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            padding: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            opacity: 0.8;
+        }
+
+        .input-box:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <input type="text" class="input-box" placeholder="Human Element" />
+
+    <script>
+        const bgElement = document.querySelector('.background');
+        let currentImageIndex = 1;
+        const totalImages = 250;
+        const intervalTime = 5000;
+
+        function setBackgroundImage(index) {
+            bgElement.style.backgroundImage = `url('https://img1.wsimg.com/isteam/ip/d87ecd1f-22ea-4e50-bc51-8e49d3f7d87a/${index}.png')`;
+        }
+
+        function updateBackgroundImage() {
+            currentImageIndex++;
+            if (currentImageIndex > totalImages) {
+                currentImageIndex = 1;
+            }
+            setBackgroundImage(currentImageIndex);
+        }
+
+        setInterval(updateBackgroundImage, intervalTime);
+        setBackgroundImage(currentImageIndex);
+    </script>
+</body>
+</html>
