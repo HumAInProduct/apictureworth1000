@@ -3,79 +3,113 @@
 <head>
     <title>Cool Backgrounds with Effects</title>
     <style>
-        /* Your previous styles */
+        /* CSS for the background image transition */
+        body, .preload {
+            background-size: cover;
+        }
 
-        /* Updated CSS for the input box */
+        .preload {
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: -1;
+            visibility: hidden;
+        }
+
+        /* CSS for the input box */
         .input-box {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            width: 400px;
-            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* CSS for the input element and button */
         .input-box input {
-            margin: 10px;
             padding: 10px;
             width: 100%;
-            box-sizing: border-box;
-            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .input-box button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
+            padding: 10px;
             width: 100%;
-            font-size: 18px;
+            cursor: pointer;
         }
 
         /* CSS for the footer */
         .footer {
-            /* Your previous styles */
-            justify-content: space-around;  /* Added to space out images */
-        }
-
-        .footer a {
-            /* Your previous styles */
-            flex: 1;  /* Added to evenly distribute space */
-            text-align: center;  /* Added to center images */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
         }
 
         .footer img {
-            /* Your previous styles */
+            max-width: 30px;
+            max-height: 30px;
         }
     </style>
     <script>
-        /* Your previous script */
+        const images = [
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_29e82dd6-3e03-492d-b9f6-6c7a5f4c3f96.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_7cb81310-4164-4a29-9334-1914f379ee6d.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_9427c542-a763-4b1a-a091-fd9644bd5b58.png',
+            'Soldier_an_image_that_captures_the_dynamic_and_engaging_convers_ca46647a-5f63-425b-ab57-61ba58582e8d.png',
+            'Soldier_re-imagine_addition_and_subtraction_so_a_visual_learner_38d2cc03-6522-4026-8ed4-c042c88c9607.png'
+        ];
 
-        // Updated submit function
+        let i = 0;
+
+        window.onload = function() {
+            const preload = document.querySelector('.preload');
+            preload.style.backgroundImage = `url(${images[i]})`;
+
+            setInterval(function() {
+                document.body.style.backgroundImage = preload.style.backgroundImage;
+                i = (i + 1) % images.length;
+                preload.style.backgroundImage = `url(${images[i]})`;
+            }, 5000);
+        }
+
         function submit() {
-            const userInput = document.getElementById('userInput');
-            if (userInput.value.length > 0) {
-                // You need to send 'userInput.value' to your server-side script here
-                console.log(userInput.value);
-                userInput.value = '';  // Clear the input box
+            const userInput = document.getElementById('userInput').value;
+            if(userInput.length <= 20) {
+                console.log(userInput);
+                // Send email logic goes here
+            }
+            else {
+                alert('Input exceeds 20 characters limit.');
             }
         }
     </script>
 </head>
 <body>
-    <!-- Your previous HTML -->
+    <div class="preload"></div>
 
     <div class="input-box">
-        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
-        <button type="button" onclick="submit()">Submit</button>
+        <input type="text" id="userInput" placeholder="Input Humanity">
+        <button onclick="submit()">Submit</button>
     </div>
 
-    <!-- Your previous HTML -->
+    <div class="footer">
+        <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="Tiktok.png" alt="Tiktok"></a>
+        <a href="#"><img src="Youtube.png" alt="Youtube"></a>
+        <a href="#"><img src="Podcast.png" alt="Podcast"></a>
+    </div>
 </body>
 </html>
