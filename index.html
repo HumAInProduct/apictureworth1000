@@ -3,62 +3,79 @@
 <head>
     <title>Cool Backgrounds with Effects</title>
     <style>
-        /* CSS for the background image transition */
-        body, .preload {
-            background-size: cover;
-        }
+        /* Your previous styles */
 
-        .preload {
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            z-index: -1;
-            visibility: hidden;
-        }
-
-        /* Additional CSS */
+        /* Updated CSS for the input box */
         .input-box {
-            /* Your styles */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
         }
 
+        /* CSS for the input element and button */
+        .input-box input {
+            margin: 10px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        .input-box button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        /* CSS for the footer */
         .footer {
-            /* Your styles */
+            /* Your previous styles */
+            justify-content: space-around;  /* Added to space out images */
         }
 
         .footer a {
-            /* Your styles */
+            /* Your previous styles */
+            flex: 1;  /* Added to evenly distribute space */
+            text-align: center;  /* Added to center images */
         }
 
         .footer img {
-            /* Your styles */
+            /* Your previous styles */
         }
     </style>
     <script>
-        const images = [
-            'image1.png',
-            'image2.png',
-            // Your images...
-        ];
+        /* Your previous script */
 
-        let i = 0;
-
-        // Preload first image.
-        const preload = document.querySelector('.preload');
-        preload.style.backgroundImage = `url(${images[i]})`;
-
-        setInterval(function() {
-            // Use preloaded image.
-            document.body.style.backgroundImage = preload.style.backgroundImage;
-            
-            // Preload next image.
-            i = (i + 1) % images.length;
-            preload.style.backgroundImage = `url(${images[i]})`;
-        }, 5000);
+        // Updated submit function
+        function submit() {
+            const userInput = document.getElementById('userInput');
+            if (userInput.value.length > 0) {
+                // You need to send 'userInput.value' to your server-side script here
+                console.log(userInput.value);
+                userInput.value = '';  // Clear the input box
+            }
+        }
     </script>
 </head>
 <body>
-    <div class="preload"></div>
+    <!-- Your previous HTML -->
 
     <div class="input-box">
-        <input type="text" id="userInput" placeholder="Type something...">
+        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
         <button type="button" onclick="submit()">Submit</button>
-    </div
+    </div>
+
+    <!-- Your previous HTML -->
+</body>
+</html>
