@@ -7,6 +7,8 @@
         body {
             background-size: cover;
             transition: background-image 5s ease-in-out;
+            background-attachment: fixed;
+            background-position: center;
         }
 
         /* CSS for the input box */
@@ -23,6 +25,13 @@
             align-items: center;
         }
 
+        .input-box h3 {
+            font-size: 11px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            font-weight: 600;
+        }
+
         .input-box input {
             width: 100%;
             padding: 10px;
@@ -33,6 +42,22 @@
         .input-box button {
             padding: 10px;
             cursor: pointer;
+        }
+
+        .square-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .square-links a {
+            display: block;
+            margin: 0 5px;
+        }
+
+        .square-links img {
+            width: 50px;
+            height: 50px;
         }
 
         /* CSS for the footer */
@@ -78,8 +103,14 @@
 <body>
     <div class="input-box">
         <h3>A Picture is Worth a Thousand Words... What's Yours?</h3>
-        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
+        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20" onkeypress="return noSpace(event)">
         <button onclick="submitInput()">Submit</button>
+        <div class="square-links">
+            <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+        </div>
     </div>
 
     <div class="footer">
@@ -95,6 +126,10 @@
             var userInput = document.getElementById('userInput').value;
             // you need to handle sending email to humainproduct@gmail.com here
             console.log(userInput);
+        }
+
+        function noSpace(e) {
+            if (e.which == 32) return false;
         }
     </script>
 </body>
