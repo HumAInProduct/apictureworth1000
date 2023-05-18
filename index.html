@@ -9,6 +9,7 @@
             transition: background-image 5s ease-in-out;
             background-attachment: fixed;
             background-position: center;
+            background-color: #000; /* fallback color while images load */
         }
 
         /* CSS for the input box */
@@ -17,16 +18,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.5); /* 50% transparency */
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
+            border-radius: 10px; /* Rounded corners */
         }
 
         .input-box h3 {
-            font-size: 11px;
+            font-size: 13px; /* Slightly bigger */
             text-transform: lowercase;
             font-variant: small-caps;
             font-weight: 600;
@@ -114,11 +116,12 @@
     </div>
 
     <div class="footer">
-        <a href="#"><img src="Twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="Facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="Instagram.png" alt="Instagram"></a>
-        <a href="#"><img src="Tiktok2.png" alt="Tiktok"></a>
-        <a href="#"><img src="Youtube.png" alt="Youtube"></a>
+        <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
+        <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/humainproduct/"><img src="Instagram.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
+        <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube.png" alt="Youtube"></a>
+        <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon.png" alt="Patreon"></a>
         <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
     <script>
