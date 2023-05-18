@@ -3,12 +3,16 @@
 <head>
     <title>Cool Backgrounds with Effects</title>
     <style>
+        /* CSS for the background image transition */
         body {
-            background: url('Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png');
             background-size: cover;
-            transition: background 5s ease-in-out;
+            transition: background-image 5s ease-in-out;
         }
 
+        /* CSS for the cool effects */
+        /* Add your random effects here */
+
+        /* CSS for the chunky white input box */
         .input-box {
             position: fixed;
             top: 50%;
@@ -16,20 +20,19 @@
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
-            border-radius: 10px;
-            font-size: 24px;
-            text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-        
+
+        /* CSS for the footer */
         .footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: #f1f1f1;
             padding: 10px;
             text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
         }
 
         .footer a {
@@ -41,7 +44,6 @@
             max-height: 30px;
         }
     </style>
-
     <script>
         const images = [
             'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png',
@@ -54,7 +56,7 @@
         let i = 0;
         setInterval(function() {
             document.body.style.backgroundImage = 'url(' + images[i] + ')';
-            if(i === images.length - 1) {
+            if (i === images.length - 1) {
                 i = 0;
             } else {
                 i++;
@@ -64,12 +66,12 @@
 </head>
 <body>
     <div class="input-box">
-        <input type="text" placeholder="Insert Humanity" maxlength="20" id="input-field">
-        <button onclick="sendEmail()">Submit</button>
+        <!-- Add your input box content here -->
     </div>
 
     <div class="footer">
-               <a href="#"><img src="twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="social-media-icon1.png" alt="Social Media 1"></a>
+        <a href="#"><img src="twitter.png" alt="Twitter"></a>
         <a href="#"><img src="facebook.png" alt="Facebook"></a>
         <a href="#"><img src="instagram.png" alt="Instagram"></a>
         <a href="#"><img src="tiktok.png" alt="Tiktok"></a>
