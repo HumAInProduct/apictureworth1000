@@ -6,7 +6,7 @@
         /* CSS for the background image transition */
         body {
             background-size: cover;
-            transition: background-image 5s ease-in-out;
+            transition: background-image 5s ease-in-out, background 5s ease-in-out;
         }
 
         /* CSS for the cool effects */
@@ -33,6 +33,7 @@
             text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
+            z-index: 2; /* Ensure the footer is above the background */
         }
 
         .footer a {
@@ -62,11 +63,25 @@
                 i++;
             }
         }, 5000);
+
+        function sendEmail() {
+            const inputBox = document.getElementById('email-input');
+            const email = inputBox.value;
+
+            // Send email or display confirmation message
+            alert('Sent');
+
+            // Reset the input box
+            inputBox.value = '';
+        }
     </script>
 </head>
 <body>
     <div class="input-box">
-        <!-- Add your input box content here -->
+        <form onsubmit="event.preventDefault(); sendEmail();">
+            <input type="email" id="email-input" placeholder="Enter your email address" required>
+            <button type="submit">Send Email</button>
+        </form>
     </div>
 
     <div class="footer">
