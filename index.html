@@ -4,15 +4,9 @@
     <title>Cool Backgrounds with Effects</title>
     <style>
         /* CSS for the background image transition */
-        body, .preload {
+        body {
             background-size: cover;
-        }
-
-        .preload {
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            z-index: -1;
-            visibility: hidden;
+            transition: background-image 5s ease-in-out;
         }
 
         /* CSS for the input box */
@@ -24,22 +18,20 @@
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            width: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
         }
 
         .input-box input {
-            padding: 10px;
             width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
             margin-bottom: 10px;
         }
 
         .input-box button {
             padding: 10px;
-            width: 100%;
             cursor: pointer;
         }
 
@@ -55,6 +47,10 @@
             color: white;
         }
 
+        .footer a {
+            margin: 0 5px;
+        }
+
         .footer img {
             max-width: 30px;
             max-height: 30px;
@@ -68,39 +64,21 @@
             'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_9427c542-a763-4b1a-a091-fd9644bd5b58.png',
             'Soldier_an_image_that_captures_the_dynamic_and_engaging_convers_ca46647a-5f63-425b-ab57-61ba58582e8d.png',
             'Soldier_re-imagine_addition_and_subtraction_so_a_visual_learner_38d2cc03-6522-4026-8ed4-c042c88c9607.png'
-        ];
-
+        ].map((img) => {
+            new Image().src = img;  // This line preloads the images.
+            return img;
+        });
         let i = 0;
-
-        window.onload = function() {
-            const preload = document.querySelector('.preload');
-            preload.style.backgroundImage = `url(${images[i]})`;
-
-            setInterval(function() {
-                document.body.style.backgroundImage = preload.style.backgroundImage;
-                i = (i + 1) % images.length;
-                preload.style.backgroundImage = `url(${images[i]})`;
-            }, 5000);
-        }
-
-        function submit() {
-            const userInput = document.getElementById('userInput').value;
-            if(userInput.length <= 20) {
-                console.log(userInput);
-                // Send email logic goes here
-            }
-            else {
-                alert('Input exceeds 20 characters limit.');
-            }
-        }
+        setInterval(function() {
+            document.body.style.backgroundImage = `url(${images[i]})`;
+            i = (i + 1) % images.length;
+        }, 5000);
     </script>
 </head>
 <body>
-    <div class="preload"></div>
-
     <div class="input-box">
-        <input type="text" id="userInput" placeholder="Input Humanity">
-        <button onclick="submit()">Submit</button>
+        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
+        <button onclick="submitInput()">Submit</button>
     </div>
 
     <div class="footer">
@@ -111,5 +89,13 @@
         <a href="#"><img src="Youtube.png" alt="Youtube"></a>
         <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
+    <script>
+        function submitInput() {
+            var userInput = document.getElementById('userInput').value;
+            // you need to handle sending email to humainproduct@gmail.com here
+            console.log(userInput);
+        }
+    </script>
 </body>
 </html>
+
