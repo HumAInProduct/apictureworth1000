@@ -1,5 +1,3 @@
-   /*code sends input to gmail not sure if works tho */
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +9,7 @@
             transition: background-image 5s ease-in-out;
         }
 
-        /* CSS for the cool effects */
-        /* Add your random effects here */
-
-        /* CSS for the chunky white input box */
+        /* CSS for the input box */
         .input-box {
             position: fixed;
             top: 50%;
@@ -23,16 +18,31 @@
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .input-box button {
+            padding: 10px;
+            cursor: pointer;
         }
 
         /* CSS for the footer */
         .footer {
             position: fixed;
             bottom: 0;
-            left: 0;
-            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
             padding: 10px;
-            text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
         }
@@ -54,31 +64,37 @@
             'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_9427c542-a763-4b1a-a091-fd9644bd5b58.png',
             'Soldier_an_image_that_captures_the_dynamic_and_engaging_convers_ca46647a-5f63-425b-ab57-61ba58582e8d.png',
             'Soldier_re-imagine_addition_and_subtraction_so_a_visual_learner_38d2cc03-6522-4026-8ed4-c042c88c9607.png'
-        ];
+        ].map((img) => {
+            new Image().src = img;  // This line preloads the images.
+            return img;
+        });
         let i = 0;
         setInterval(function() {
-            document.body.style.backgroundImage = 'url(' + images[i] + ')';
-            if (i === images.length - 1) {
-                i = 0;
-            } else {
-                i++;
-            }
+            document.body.style.backgroundImage = `url(${images[i]})`;
+            i = (i + 1) % images.length;
         }, 5000);
     </script>
 </head>
 <body>
     <div class="input-box">
-        <!-- Add your input box content here -->
+        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
+        <button onclick="submitInput()">Submit</button>
     </div>
 
     <div class="footer">
-        <a href="#"><img src="social-media-icon1.png" alt="Social Media 1"></a>
-        <a href="#"><img src="twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="instagram.png" alt="Instagram"></a>
-        <a href="#"><img src="tiktok.png" alt="Tiktok"></a>
-        <a href="#"><img src="youtube.png" alt="Youtube"></a>
-        <a href="#"><img src="podcast.png" alt="Podcast"></a>
+        <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="Instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="Tiktok.png" alt="Tiktok"></a>
+        <a href="#"><img src="Youtube.png" alt="Youtube"></a>
+        <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
+    <script>
+        function submitInput() {
+            var userInput = document.getElementById('userInput').value;
+            // you need to handle sending email to humainproduct@gmail.com here
+            console.log(userInput);
+        }
+    </script>
 </body>
 </html>
