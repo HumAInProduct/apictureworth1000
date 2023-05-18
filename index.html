@@ -1,3 +1,5 @@
+   /*code sends input to gmail not sure if works tho */
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,28 +64,11 @@
                 i++;
             }
         }, 5000);
-
-        function sendEmail() {
-            // Get the form input value
-            const inputBox = document.getElementById('email-input');
-            const email = inputBox.value;
-
-            // Send email
-            // You can use a server-side scripting language like PHP to send the email
-            // For demonstration purposes, we'll simply display a confirmation message
-            alert('Sent');
-
-            // Reset the input box
-            inputBox.value = '';
-        }
     </script>
 </head>
 <body>
     <div class="input-box">
-        <form onsubmit="event.preventDefault(); sendEmail();">
-            <input type="email" id="email-input" placeholder="Enter your email address" required>
-            <button type="submit">Send Email</button>
-        </form>
+        <!-- Add your input box content here -->
     </div>
 
     <div class="footer">
