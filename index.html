@@ -6,7 +6,7 @@
         /* CSS for the background image transition */
         body {
             background-size: cover;
-            transition: background-image 5s ease-in-out, background 5s ease-in-out;
+            transition: background-image 5s ease-in-out;
         }
 
         /* CSS for the cool effects */
@@ -64,10 +64,13 @@
         }, 5000);
 
         function sendEmail() {
+            // Get the form input value
             const inputBox = document.getElementById('email-input');
             const email = inputBox.value;
 
-            // Send email or display confirmation message
+            // Send email
+            // You can use a server-side scripting language like PHP to send the email
+            // For demonstration purposes, we'll simply display a confirmation message
             alert('Sent');
 
             // Reset the input box
