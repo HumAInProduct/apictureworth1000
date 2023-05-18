@@ -1,0 +1,84 @@
+   /*code sends input to gmail not sure if works tho */
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cool Backgrounds with Effects</title>
+    <style>
+        /* CSS for the background image transition */
+        body {
+            background-size: cover;
+            transition: background-image 5s ease-in-out;
+        }
+
+        /* CSS for the cool effects */
+        /* Add your random effects here */
+
+        /* CSS for the chunky white input box */
+        .input-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* CSS for the footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .footer a {
+            margin: 0 5px;
+        }
+
+        .footer img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+    </style>
+    <script>
+        const images = [
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_29e82dd6-3e03-492d-b9f6-6c7a5f4c3f96.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_7cb81310-4164-4a29-9334-1914f379ee6d.png',
+            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_9427c542-a763-4b1a-a091-fd9644bd5b58.png',
+            'Soldier_an_image_that_captures_the_dynamic_and_engaging_convers_ca46647a-5f63-425b-ab57-61ba58582e8d.png',
+            'Soldier_re-imagine_addition_and_subtraction_so_a_visual_learner_38d2cc03-6522-4026-8ed4-c042c88c9607.png'
+        ];
+        let i = 0;
+        setInterval(function() {
+            document.body.style.backgroundImage = 'url(' + images[i] + ')';
+            if (i === images.length - 1) {
+                i = 0;
+            } else {
+                i++;
+            }
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="input-box">
+        <!-- Add your input box content here -->
+    </div>
+
+    <div class="footer">
+        <a href="#"><img src="social-media-icon1.png" alt="Social Media 1"></a>
+        <a href="#"><img src="twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="tiktok.png" alt="Tiktok"></a>
+        <a href="#"><img src="youtube.png" alt="Youtube"></a>
+        <a href="#"><img src="podcast.png" alt="Podcast"></a>
+    </div>
+</body>
+</html>
