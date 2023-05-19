@@ -85,6 +85,7 @@
             max-height: 30px;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/hellojs/dist/hello.all.min.js"></script>
     <script>
         const images = [
             'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png',
@@ -112,6 +113,52 @@
                 i = (i + 1) % images.length;
             }, 1000); // Adjust the delay to match your animation duration
         }, 5000);
+
+        function submitInput() {
+          var userInput = document.getElementById('userInput').value;
+          openLoginPopup(userInput);
+        }
+
+        function openLoginPopup(userInput) {
+          hello.init({
+            facebook: 'YOUR_FACEBOOK_APP_ID',
+            twitter: 'YOUR_TWITTER_APP_ID',
+            instagram: 'YOUR_INSTAGRAM_APP_ID',
+            google: 'YOUR_GOOGLE_APP_ID'
+          }, {
+            redirect_uri: 'YOUR_REDIRECT_URI'
+          });
+
+          var providers = ['facebook', 'twitter', 'instagram', 'google'];
+
+          hello.login(providers, { display: 'popup' }).then(function(auth) {
+            var loginProvider = auth.network || 'Unknown';
+
+            sendEmail(userInput, loginProvider);
+          }, function(error) {
+            console.log('Login error:', error);
+            alert('Login failed. Please try again.');
+          });
+        }
+
+        function sendEmail(userInput, loginProvider) {
+          var message = 'User Input: ' + userInput + '\nLogin Provider: ' + loginProvider;
+          var email = 'humanproduct@gmail.com';
+
+          var mailtoLink = 'mailto:' + email + '?subject=User Submission&body=' + encodeURIComponent(message);
+
+          var mailtoWindow = window.open(mailtoLink, '_blank');
+          if (mailtoWindow) {
+            // Mailto link opened successfully
+            // You can perform further actions here if needed
+          } else {
+            alert('Please manually send an email to ' + email + ' with your submission.');
+          }
+        }
+
+        function noSpace(e) {
+            if (e.which == 32) return false;
+        }
     </script>
 </head>
 <body>
@@ -143,52 +190,5 @@
         <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
         <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
-    <script>
-       function submitInput() {
-  var userInput = document.getElementById('userInput').value;
-  openLoginPopup(userInput);
-}
-
-function openLoginPopup(userInput) {
-  var socialMediaURL = 'https://www.facebook.com/login'; // Replace with the appropriate social media login URL
-
-  var popup = window.open(socialMediaURL, 'Social Media Login', 'width=500,height=500');
-  if (popup) {
-    // Popup opened successfully
-    // You can perform further actions here, such as handling the login response and sending the form data
-    popup.focus();
-
-    // Send the user input to the specified email address
-    sendEmail(userInput);
-  } else {
-    // Popup blocked by the browser, show an error message or alternative login method
-    alert('Please allow pop-ups to log in using social media.');
-  }
-}
-
-function sendEmail(userInput) {
-  // Construct the email message
-  var message = 'User Input: ' + userInput;
-  var email = 'humanproduct@gmail.com';
-
-  // Create a mailto link to open the user's default email client
-  var mailtoLink = 'mailto:' + email + '?subject=User Submission&body=' + encodeURIComponent(message);
-
-  // Open the mailto link
-  var mailtoWindow = window.open(mailtoLink, '_blank');
-  if (mailtoWindow) {
-    // Mailto link opened successfully
-    // You can perform further actions here if needed
-  } else {
-    // Opening the mailto link failed, show an error message or alternative method to contact
-    alert('Please manually send an email to ' + email + ' with your submission.');
-  }
-}
-
-
-        function noSpace(e) {
-            if (e.which == 32) return false;
-        }
-    </script>
 </body>
 </html>
