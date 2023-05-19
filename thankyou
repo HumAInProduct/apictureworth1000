@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Picture Worth 1000</title>
+    <style>
+        /* Every 1000 Human Words Inputted Results In An Iconic Art Generation.
+        Participate in a first of its kind historical art collaboration between Humans and AI*/
+        body {
+            background-size: cover;
+            transition: background-image 5s ease-in-out;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #000; /* fallback color while images load */
+        }
+
+        /* CSS for the input box */
+        .input-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.5); /* 50% transparency */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .input-box h2 {
+            font-size: 20px; /* Slightly bigger */
+            text-transform: lowercase;
+            font-variant: small-caps;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .input-box button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .square-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .square-links a {
+            display: block;
+            margin: 0 5px;
+        }
+
+        .square-links img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* CSS for the footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .footer a {
+            margin: 0 5px;
+        }
+
+        .footer img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        .thank-you {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .thank-you h2 {
+            font-size: 24px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .thank-you a {
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you">
+        <h2>You just participated in a revolutionary art collab between humans and AI.</h2>
+        <p>Your artistic touch will be preserved for eternity as part of an iconic NFT series "A Picture Worth 1000".</p>
+        <a href="https://opensea.io/collection/apictureworth1000
