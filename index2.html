@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cool Backgrounds with Effects</title>
+    <title>A Picture Worth 1000</title>
     <style>
-        /* CSS for the background image transition */
+        /* Every 1000 Human Words Inputted Results In An Iconic Art Generation.
+Participate in a first of it's kind historical art collaboration between Humans and AI*/
         body {
             background-size: cover;
             transition: background-image 5s ease-in-out;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #000; /* fallback color while images load */
         }
 
         /* CSS for the input box */
@@ -15,12 +19,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.5); /* 50% transparency */
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .input-box h3 {
+            font-size: 13px; /* Slightly bigger */
+            text-transform: lowercase;
+            font-variant: small-caps;
+            font-weight: 600;
         }
 
         .input-box input {
@@ -33,6 +45,22 @@
         .input-box button {
             padding: 10px;
             cursor: pointer;
+        }
+
+        .square-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .square-links a {
+            display: block;
+            margin: 0 5px;
+        }
+
+        .square-links img {
+            width: 50px;
+            height: 50px;
         }
 
         /* CSS for the footer */
@@ -77,16 +105,28 @@
 </head>
 <body>
     <div class="input-box">
-        <input type="text" id="userInput" placeholder="Input Humanity" maxlength="20">
-        <button onclick="submitInput()">Submit</button>
+        <h2>A Picture is Worth a Thousand Words... What's Yours?</h2>
+        <input type="text" color="blue" id="userInput" placeholder="Input Humanity" maxlength="15" onkeypress="return noSpace(event)">
+        <button onclick="submitInput()">Create</button>
+
+        <div class="square-links">
+<a href="#"><img src="nft0.png" alt="A Picture Worth 1000"></a>
+
+            <a href="#"><img src="nft1.png" alt="NFT Collection"></a>
+            <a href="#"><img src="nft2.png" alt="NFT Collection"></a>
+            <a href="#"><img src="nft3.png" alt="NFT Collection"></a>
+            <a href="#"><img src="nft4.png" alt="NFT Collection"></a>
+   <a href="#"><img src="nft5.png" alt="NFT Collection"></a>
+        </div>NFTs
     </div>
 
     <div class="footer">
-        <a href="#"><img src="Twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="Facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="Instagram.png" alt="Instagram"></a>
-        <a href="#"><img src="Tiktok.png" alt="Tiktok"></a>
-        <a href="#"><img src="Youtube.png" alt="Youtube"></a>
+        <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
+        <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
+        <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
+        <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
         <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
     <script>
@@ -94,6 +134,10 @@
             var userInput = document.getElementById('userInput').value;
             // you need to handle sending email to humainproduct@gmail.com here
             console.log(userInput);
+        }
+
+        function noSpace(e) {
+            if (e.which == 32) return false;
         }
     </script>
 </body>
