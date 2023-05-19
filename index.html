@@ -144,11 +144,47 @@
         <a href="#"><img src="Podcast.png" alt="Podcast"></a>
     </div>
     <script>
-        function submitInput() {
-            var userInput = document.getElementById('userInput').value;
-            // you need to handle sending email to humainproduct@gmail.com here
-            console.log(userInput);
-        }
+       function submitInput() {
+  var userInput = document.getElementById('userInput').value;
+  openLoginPopup(userInput);
+}
+
+function openLoginPopup(userInput) {
+  var socialMediaURL = 'https://www.facebook.com/login'; // Replace with the appropriate social media login URL
+
+  var popup = window.open(socialMediaURL, 'Social Media Login', 'width=500,height=500');
+  if (popup) {
+    // Popup opened successfully
+    // You can perform further actions here, such as handling the login response and sending the form data
+    popup.focus();
+
+    // Send the user input to the specified email address
+    sendEmail(userInput);
+  } else {
+    // Popup blocked by the browser, show an error message or alternative login method
+    alert('Please allow pop-ups to log in using social media.');
+  }
+}
+
+function sendEmail(userInput) {
+  // Construct the email message
+  var message = 'User Input: ' + userInput;
+  var email = 'humanproduct@gmail.com';
+
+  // Create a mailto link to open the user's default email client
+  var mailtoLink = 'mailto:' + email + '?subject=User Submission&body=' + encodeURIComponent(message);
+
+  // Open the mailto link
+  var mailtoWindow = window.open(mailtoLink, '_blank');
+  if (mailtoWindow) {
+    // Mailto link opened successfully
+    // You can perform further actions here if needed
+  } else {
+    // Opening the mailto link failed, show an error message or alternative method to contact
+    alert('Please manually send an email to ' + email + ' with your submission.');
+  }
+}
+
 
         function noSpace(e) {
             if (e.which == 32) return false;
