@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Picture Is Worth 1000 Words</title>
+    <title>A Picture Worth 1000</title>
     <style>
         body {
-            background-image: url('background.png');
+            background-image: url('apictureworth1000words.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-attachment: fixed;
             height: 100vh;
             margin: 0;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             font-family: Arial, sans-serif;
         }
-
+        
+        /* Add a header */
         header {
             position: absolute;
             top: 0;
@@ -28,7 +27,14 @@
             font-size: 1em;
         }
 
-        footer {
+        #userInput {
+            width: 10vw;
+            text-align: center;
+            outline: none;
+            padding: 5px;
+        }
+
+        .footer {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -36,13 +42,6 @@
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
-        }
-
-        #userInput {
-            width: 10vw;
-            text-align: center;
-            outline: none;
-            padding: 5px;
         }
 
         .footer a {
@@ -57,7 +56,7 @@
 
     <input type="text" id="userInput" placeholder="They say a picture is worth 1000 words... So what's yours?" maxlength="20">
 
-    <footer class="footer">
+    <div class="footer">
         <!-- Placeholder links -->
         <a href="#">Link 1</a>
         <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
@@ -74,7 +73,7 @@
         <a href="#">Link 7</a>
         <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
         <a href="#">Link 8</a>
-    </footer>
+    </div>
 
     <script>
         const input = document.getElementById('userInput');
