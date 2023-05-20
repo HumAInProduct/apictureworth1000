@@ -27,13 +27,13 @@
     }
     #inputContainer {
       position: absolute;
-      bottom: 10px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       text-align: center;
       z-index: 2;
       width: 80%;
-      max-width: 350px;
+      max-width: 400px;
       margin: 0 auto;
     }
     #inputBox {
@@ -43,37 +43,31 @@
     }
     #caption {
       color: white;
-      font-size: 12px;
-      font-weight: bold;
+      font-size: 10px;
+      font-variant: small-caps;
       text-transform: uppercase;
       text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-family: 'Arial', sans-serif;
     }
-    footer {
+    header {
       position: fixed;
-      bottom: 0;
+      top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.5);
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
       padding: 10px;
       z-index: 2;
     }
-    footer a img {
+    header a img {
       width: 18px;
       margin: 0 5px;
     }
   </style>
 </head>
 <body>
-  <div id="inputContainer">
-    <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" />
-    <p id="caption">Participate in the world's first global art collaboration between humans and AI</p>
-  </div>
-  <footer>
+  <header>
     <!-- Your links and icons here -->
     <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
     <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
@@ -82,6 +76,10 @@
     <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
     <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
     <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
-  </footer>
+  </header>
+  <div id="inputContainer">
+    <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" />
+    <p id="caption">Participate in the world's first global art collab between humans and AI</p>
+  </div>
 </body>
 </html>
