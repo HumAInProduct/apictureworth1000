@@ -33,7 +33,7 @@
       text-align: center;
       z-index: 2;
       width: 80%;
-      max-width: 400px;
+      max-width: 350px;
       margin: 0 auto;
     }
     #inputBox {
@@ -43,10 +43,13 @@
     }
     #caption {
       color: white;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     footer {
       position: fixed;
@@ -54,7 +57,7 @@
       width: 100%;
       background: rgba(0, 0, 0, 0.5);
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       padding: 10px;
       z-index: 2;
@@ -68,7 +71,7 @@
 <body>
   <div id="inputContainer">
     <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" />
-    <p id="caption">Participate in the world's first global art collab between humans and AI</p>
+    <p id="caption">Participate in the world's first global art collaboration between humans and AI</p>
   </div>
   <footer>
     <!-- Your links and icons here -->
@@ -82,4 +85,3 @@
   </footer>
 </body>
 </html>
-
