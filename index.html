@@ -1,91 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>A Picture Worth 1000</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Picture Is Worth 1000 Words</title>
     <style>
-        /* Every 1000 Human Words Inputted Results In An Iconic Art Generation.
-        Participate in a first of its kind historical art collaboration between Humans and AI*/
         body {
+            background-image: url('background.png');
             background-size: cover;
-            transition: background-image 5s ease-in-out;
-            background-attachment: fixed;
             background-position: center;
-            background-color: #000; /* fallback color while images load */
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
         }
 
-        /* CSS for the footer */
-        .footer {
-            position: fixed;
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            background: #ffffff;
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+
+        footer {
+            position: absolute;
             bottom: 0;
             width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
+            background: rgba(54, 54, 54, 0.8);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #userInput {
+            width: 10vw;
+            text-align: center;
+            outline: none;
+            padding: 5px;
         }
 
         .footer a {
-            margin: 0 5px;
-        }
-
-        .footer img {
-            max-width: 30px;
-            max-height: 30px;
-        }
-
-        .additional-links a {
-            margin: 0 5px;
-        }
-
-        .additional-links img {
-            max-width: 30px;
-            max-height: 30px;
+            margin: 0 10px;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/hellojs/dist/hello.all.min.js"></script>
-    <script>
-        const images = [
-            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_0ee98f87-1b4f-4153-b145-19782e24e9b1.png',
-            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_29e82dd6-3e03-492d-b9f6-6c7a5f4c3f96.png',
-            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_7cb81310-4164-4a29-9334-1914f379ee6d.png',
-            'Soldier_a_dichromatic_arialized_arbitrary_abstraction_of_a_prec_9427c542-a763-4b1a-a091-fd9644bd5b58.png',
-            'Soldier_an_image_that_captures_the_dynamic_and_engaging_convers_ca46647a-5f63-425b-ab57-61ba58582e8d.png',
-            'Soldier_re-imagine_addition_and_subtraction_so_a_visual_learner_38d2cc03-6522-4026-8ed4-c042c88c9607.png'
-        ].map((img) => {
-            new Image().src = img; // This line preloads the images.
-            return img;
-        });
-        let i = 0;
-
-        setInterval(function() {
-            const container = document.body;
-            const crumblingImage = document.getElementById('crumbling-image');
-
-            crumblingImage.style.backgroundImage = `url(${images[i]})`;
-            crumblingImage.style.animationPlayState = 'running';
-
-            setTimeout(() => {
-                container.style.backgroundImage = `url(${images[i]})`;
-                crumblingImage.style.animationPlayState = 'paused';
-                i = (i + 1) % images.length;
-            }, 1000); // Adjust the delay to match your animation duration
-        }, 5000);
-    </script>
 </head>
 <body>
- <div id="crumbling-image"></div>
-</div>
+    <header>
+        Participate in the worlds first global art collaboration between humans and AI
+    </header>
 
-<div class="footer">
-    <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
-    <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
-    <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
-    <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
-    <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
-    <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
-    <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
-</div>
+    <input type="text" id="userInput" placeholder="They say a picture is worth 1000 words... So what's yours?" maxlength="20">
+
+    <footer class="footer">
+        <!-- Placeholder links -->
+        <a href="#">Link 1</a>
+        <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
+        <a href="#">Link 2</a>
+        <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
+        <a href="#">Link 3</a>
+        <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
+        <a href="#">Link 4</a>
+        <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
+        <a href="#">Link 5</a>
+        <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
+        <a href="#">Link 6</a>
+        <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
+        <a href="#">Link 7</a>
+        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
+        <a href="#">Link 8</a>
+    </footer>
+
+    <script>
+        const input = document.getElementById('userInput');
+        input.addEventListener('keydown', function(e) {
+            if (e.key === ' ') {
+                e.preventDefault();
+            }
+            if (e.key === 'Enter') {
+                console.log("User submitted: " + input.value);
+                input.value = '';
+            }
+        });
+    </script>
 </body>
 </html>
-
