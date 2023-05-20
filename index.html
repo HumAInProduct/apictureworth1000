@@ -4,7 +4,7 @@
     <title>A Picture Worth 1000</title>
     <style>
         body {
-            background-image: url('Apictureworth1000words.png');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -42,6 +42,9 @@
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .footer a {
@@ -78,9 +81,6 @@
     <script>
         const input = document.getElementById('userInput');
         input.addEventListener('keydown', function(e) {
-            if (e.key === ' ') {
-                e.preventDefault();
-            }
             if (e.key === 'Enter') {
                 console.log("User submitted: " + input.value);
                 input.value = '';
