@@ -27,9 +27,9 @@
     }
     #inputContainer {
       position: absolute;
-      top: 50%;
+      bottom: 10%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       text-align: center;
       z-index: 2;
       width: 80%;
@@ -43,11 +43,12 @@
     }
     #caption {
       color: white;
-      font-size: 10px;
-      font-variant: small-caps;
+      font-size: 14px;
       text-transform: uppercase;
       text-align: center;
-      font-family: 'Arial', sans-serif;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     header {
       position: fixed;
@@ -78,8 +79,20 @@
     <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
   </header>
   <div id="inputContainer">
-    <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" />
+    <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" maxlength="16" onkeypress="return validateInput(event)" />
     <p id="caption">Participate in the world's first global art collab between humans and AI</p>
   </div>
+
+  <script>
+    function validateInput(event) {
+      const input = event.target.value;
+      const formattedInput = input.replace(/[^a-z]/g, '').toLowerCase();
+      event.target.value = formattedInput;
+
+      if (formattedInput.length >= 16) {
+        event.preventDefault();
+      }
+    }
+  </script>
 </body>
 </html>
