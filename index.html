@@ -1,10 +1,7 @@
-To achieve the functionality where the input box disallows spaces or symbols and opens the social media verification upon pressing Enter, you will need to modify the code as follows:
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Title Here</title>
+  <title>A Picture Worth 1000</title>
   <style>
     body {
       margin: 0;
@@ -74,8 +71,9 @@ To achieve the functionality where the input box disallows spaces or symbols and
 <body>
   <header>
     <!-- Your links and icons here -->
-    <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
+    
     <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
+    <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
     <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
     <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
     <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
@@ -83,9 +81,7 @@ To achieve the functionality where the input box disallows spaces or symbols and
     <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29t/LzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
   </header>
   <div id="inputContainer">
-    <input
-
- id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" onkeypress="handleKeyPress(event)" />
+    <input id="inputBox" type="text" placeholder="A picture is worth 1000 words...what's yours?" onkeypress="handleKeyPress(event)" />
     <p id="caption">Participate in the world's first global art collaboration between humans and AI</p>
   </div>
 
@@ -105,14 +101,3 @@ To achieve the functionality where the input box disallows spaces or symbols and
   </script>
 </body>
 </html>
-```
-
-In this updated code:
-
-1. The `onkeypress` event handler is added to the input box to call the `handleKeyPress` function.
-
-2. The `handleKeyPress` function checks if the key pressed is "Enter". If it is, the function prevents the default form submission behavior, retrieves the input value, removes any non-alphanumeric characters, and converts it to lowercase.
-
-3. If the formatted input has a length greater than 0, you can replace the placeholder code with the actual implementation to open the social media verification pop-up or redirect to the appropriate authentication page for the respective social media platform.
-
-Please note that the code provided is for the frontend part of the functionality. You will need to implement the actual social media verification process using the respective social media APIs or SDKs on the backend.
