@@ -13,57 +13,6 @@
             background-color: #000; /* fallback color while images load */
         }
 
-        /* CSS for the input box */
-        .input-box {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.5); /* 50% transparency */
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 10px; /* Rounded corners */
-        }
-
-        .input-box h2 {
-            font-size: 20px; /* Slightly bigger */
-            text-transform: lowercase;
-            font-variant: small-caps;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .input-box input {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-
-        .input-box button {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .square-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .square-links a {
-            display: block;
-            margin: 0 5px;
-        }
-
-        .square-links img {
-            width: 50px;
-            height: 50px;
-        }
-
         /* CSS for the footer */
         .footer {
             position: fixed;
@@ -81,6 +30,27 @@
         }
 
         .footer img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        /* Additional footer */
+        .additional-footer {
+            position: fixed;
+            bottom: 50px; /* Adjust the distance from the bottom as needed */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .additional-footer a {
+            margin: 0 5px;
+        }
+
+        .additional-footer img {
             max-width: 30px;
             max-height: 30px;
         }
@@ -113,84 +83,20 @@
                 i = (i + 1) % images.length;
             }, 1000); // Adjust the delay to match your animation duration
         }, 5000);
-
-        function submitInput() {
-          var userInput = document.getElementById('userInput').value;
-          openLoginPopup(userInput);
-        }
-
-        function openLoginPopup(userInput) {
-          hello.init({
-            facebook: 'YOUR_FACEBOOK_APP_ID',
-            twitter: 'YOUR_TWITTER_APP_ID',
-            instagram: 'YOUR_INSTAGRAM_APP_ID',
-            google: 'YOUR_GOOGLE_APP_ID'
-          }, {
-            redirect_uri: '/thankyou'
-          });
-
-          var providers = ['facebook', 'twitter', 'instagram', 'google'];
-
-          hello.login(providers, { display: 'popup' }).then(function(auth) {
-            var loginProvider = auth.network || 'Unknown';
-
-            sendEmail(userInput, loginProvider);
-          }, function(error) {
-            console.log('Login error:', error);
-            alert('Login failed. Please try again.');
-          });
-        }
-
- function sendEmail(userInput, loginProvider) {
-  var formData = new FormData();
-  formData.append('userInput', userInput);
-  formData.append('loginProvider', loginProvider);
-
-  fetch('https://formspree.io/f/moqzbzry', {
-    method: 'POST',
-    body: formData
-  })
-  .then(function(response) {
-    if (response.ok) {
-      console.log('Email sent successfully');
-      // Optionally display a success message to the user
-      alert('Email sent successfully');
-    } else {
-      console.log('Failed to send email');
-      // Optionally display an error message to the user
-      alert('Failed to send email');
-    }
-  })
-  .catch(function(error) {
-    console.log('Error:', error);
-    // Optionally display an error message to the user
-    alert('Error sending email');
-  });
-}
-
-        function noSpace(e) {
-            if (e.which == 32) return false;
-        }
     </script>
 </head>
 <body>
-    <div class="input-box">
-        <h2>A Picture is Worth a Thousand Words... What's Yours?</h2>
-        <input type="text" color="blue" id="userInput" placeholder="Input Humanity" maxlength="15" onkeypress="return noSpace(event)">
-        <button onclick="submitInput()">Create</button>
-
-        <div class="square-links">
-            <a href="https://opensea.io/collection/apictureworth1000"><img src="nft0.png" alt="A Picture Worth 1000"></a>
-            <a href="https://opensea.io/collection/livingextinct"><img src="nft1.png" alt="NFT Collection"></a>
-            <a href="https://opensea.io/collection/livingextinct"><img src="nft2.png" alt="NFT Collection"></a>
-            <a href="https://opensea.io/collection/aiandus"><img src="nft3.png" alt="NFT Collection"></a>
-            <a href="https://opensea.io/collection/kookydolls"><img src="nft4.png" alt="NFT Collection"></a>
-            <a href="https://opensea.io/collection/genetic-engineers"><img src="nft5.png" alt="NFT Collection"></a>
-        </div>NFTs
-    </div>
-
     <div id="image-container">
         <div id="crumbling-image"></div>
+    </div>
+
+    <div class="additional-footer">
+        <a href="https://opensea.io/collection/apictureworth1000"><img src="nft0.png" alt="A Picture Worth 1000"></a>
+        <a href="https://opensea.io/collection/livingextinct"><img src="nft1.png" alt="NFT Collection"></a>
+        <a href="https://opensea.io/collection/livingextinct"><img src="nft2.png" alt="NFT Collection"></a>
+        <a href="https://opensea.io/collection/aiandus"><img src="nft3.png" alt="NFT Collection"></a>
+        <a href="https://opensea.io/collection/kookydolls"><img src="nft4.png" alt="NFT Collection"></a>
+        <a href="https://opensea.io/collection/genetic-engineers"><img src="nft5.png" alt="NFT Collection"></a>
     </div>
 
     <div class="footer">
