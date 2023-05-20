@@ -1,13 +1,77 @@
-<!DOCTYPE<!DOCTYPE html>
+<html>
 <html>
 <head>
   <title>A Picture Worth 1000</title>
   <style>
-    /* your styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('background.png') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      overflow: hidden;
+    }
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2); /* Change last value for different opacity */
+      pointer-events: none;
+      z-index: 1;
+    }
+    #inputContainer {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 2;
+      width: 75%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    #inputBox {
+      padding: 5px;
+      text-align: center;
+      width: 100%;
+    }
+    #caption {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 90%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    header a img {
+      width: 18px;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
   <header>
+    <!-- Your links and icons here -->
     <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
     <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
     <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
@@ -35,18 +99,9 @@
         const input = event.target.value;
         if (input.length > 0) {
           // Open social media verification pop-up here
-          openSocialMediaLogin();
+          // Replace the placeholder code with the actual implementation
+          console.log("Opening social media verification for input:", input);
         }
-      }
-    }
-
-    function openSocialMediaLogin() {
-      const userConfirmation = confirm("Please confirm you are a human. You'll be asked to log in via Facebook, Twitter, or TikTok.");
-      if (userConfirmation) {
-        console.log("User confirmed. Implement your social media login here.");
-        // TODO: add your API logic for Facebook, Twitter and TikTok here
-      } else {
-        console.log("User didn't confirm.");
       }
     }
   </script>
