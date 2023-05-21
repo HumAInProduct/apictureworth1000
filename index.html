@@ -1,23 +1,56 @@
 <html>
+<html>
 <head>
   <title>A Picture Worth 1000</title>
   <style>
-    .background {
-      position: fixed;
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('background.png') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      overflow: hidden;
+    }
+    body::after {
+      content: "";
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: -1;
-      transition: opacity 1s ease-in-out;
+      background: rgba(0, 0, 0, 0.2); /* Change last value for different opacity */
+      pointer-events: none;
+      z-index: 1;
     }
-    #background2 {
-      z-index: -2;
+    #inputContainer {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 2;
+      width: 75%;
+      max-width: 300px;
+      margin: 0 auto;
     }
-    /* ...existing styles... */
+    #inputBox {
+      padding: 5px;
+      text-align: center;
+      width: 100%;
+    }
+    #caption {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     header {
       position: fixed;
       top: 0;
@@ -28,59 +61,49 @@
       align-items: center;
       padding: 10px;
       margin: 0 auto;
-      z-index: 3;
+      z-index: 2;
     }
-    /* ...existing styles... */
+    header a img {
+      width: 18px;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
-  <div id="background1" class="background"></div>
-  <div id="background2" class="background"></div>
-  
   <header>
     <!-- Your links and icons here -->
-    <!-- ...existing content... -->
+    <a href="https://www.facebook.com/profile.php?id=100092369995811"><img src="Facebook2.png" alt="Facebook"></a>
+    <a href="https://twitter.com/HumAInProduct"><img src="Twitter.png" alt="Twitter"></a>
+    <a href="https://www.instagram.com/humainproduct/"><img src="Instagram3.png" alt="Instagram"></a>
+    <a href="https://www.tiktok.com/@learn2prompt"><img src="Tiktok2.png" alt="Tiktok"></a>
+    <a href="https://www.youtube.com/channel/UCw0s0ZfH5A1O7oSHScXpysA"><img src="Youtube2.png" alt="Youtube"></a>
+    <a href="https://www.patreon.com/HumAInProduct"><img src="Patreon2.png" alt="Patreon"></a>
+    <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29t/LzQ3NDcwNS9yc3M"><img src="Podcast.png" alt="Podcast"></a>
   </header>
   <div id="inputContainer">
-    <!-- ...existing content... -->
+    <input id="inputBox" type="text" maxlength="16" placeholder="A picture is worth 1000 words...what's yours?" onkeypress="handleKeyPress(event)" />
+    <p id="caption">Participate in the world's first global art collaboration between humans and AI</p>
   </div>
-  
+
   <script>
     const inputBox = document.getElementById('inputBox');
-    const backgrounds = [];
-    let currentBackgroundIndex = 0;
 
-    const bg1 = document.getElementById('background1');
-    const bg2 = document.getElementById('background2');
+    inputBox.addEventListener('input', function() {
+      // replace unwanted characters, transform to lowercase, and limit to 16 characters
+      this.value = this.value.replace(/[^\w]/g, '').toLowerCase().substring(0, 16);
+    });
 
-    // Preload images and store their references
-    for (let i = 1; i <= 19; i++) {
-      const img = new Image();
-      img.src = `backgrounds/${i}.png`;
-      backgrounds.push(img);
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const input = event.target.value;
+        if (input.length > 0) {
+          // Open social media verification pop-up here
+          // Replace the placeholder code with the actual implementation
+          console.log("Opening social media verification for input:", input);
+        }
+      }
     }
-
-    function cycleBackground() {
-      currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
-
-      // Instead of updating the body's background image,
-      // we will update one of the two divs and animate the transition.
-      const nextBackground = backgrounds[currentBackgroundIndex];
-      const visibleBackground = (currentBackgroundIndex % 2 == 0) ? bg1 : bg2;
-      const hiddenBackground = (currentBackgroundIndex % 2 == 0) ? bg2 : bg1;
-
-      visibleBackground.style.backgroundImage = `url('${nextBackground.src}')`;
-      visibleBackground.style.opacity = '1';
-      hiddenBackground.style.opacity = '0';
-    }
-
-    // Initial background cycling
-    cycleBackground();
-
-    // Start cycling backgrounds every 6 seconds
-    setInterval(cycleBackground, 6000);
-
-    // ...existing event listeners and functions...
   </script>
 </body>
 </html>
