@@ -1,5 +1,4 @@
 <html>
-<html>
 <head>
   <title>A Picture Worth 1000</title>
   <style>
@@ -7,12 +6,13 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: url('background.png') no-repeat center center fixed; 
+      background: url('backgrounds/1.png') no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
       overflow: hidden;
+      transition: background 1s ease-in-out;
     }
     body::after {
       content: "";
@@ -87,6 +87,26 @@
 
   <script>
     const inputBox = document.getElementById('inputBox');
+    const backgrounds = [];
+    let currentBackgroundIndex = 0;
+
+    // Preload images and store their references
+    for (let i = 1; i <= 19; i++) {
+      const img = new Image();
+      img.src = `backgrounds/${i}.png`;
+      backgrounds.push(img);
+    }
+
+    function cycleBackground() {
+      currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+      document.body.style.backgroundImage = `url('${backgrounds[currentBackgroundIndex].src}')`;
+    }
+
+    // Initial background cycling
+    cycleBackground();
+
+    // Start cycling backgrounds every 6 seconds
+    setInterval(cycleBackground, 6000);
 
     inputBox.addEventListener('input', function() {
       // replace unwanted characters, transform to lowercase, and limit to 16 characters
